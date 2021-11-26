@@ -1,0 +1,73 @@
+:root {
+    --size: 300px
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
+    height: 100vh;
+}
+
+.cube {
+    margin: 12rem auto 0;
+    width: var(--size);
+    height: var(--size);
+    transform-style: preserve-3d;
+    /* transform: rotateY(30deg) rotateZ(30deg); */
+    animation: spin 20s infinite linear;
+}
+
+.side {
+    position: absolute;
+    opacity: 0.75;
+    width: var(--size);
+    height: var(--size);
+
+}
+#front {
+    background: url(./assets/b1.jpeg)no-repeat center / cover;
+    transform: translateZ(calc(var(--size) / 2));
+}
+
+#top {
+    background: url(./assets/b2.jpeg)no-repeat center / cover;
+    transform: rotateX(-270deg) translateY(calc(-1 * (var(--size) / 2)));
+    transform-origin: top center;
+}
+
+#left {
+    background: url(./assets/b3.jpeg)no-repeat center / cover;
+    transform: rotateY(270deg) translateX(calc(-1 * (var(--size) / 2)));
+    transform-origin: center left;
+}
+#right {
+    background: url(./assets/b4.jpeg)no-repeat right / cover;
+    transform: rotateY(-270deg) translateX(calc(var(--size) / 2));
+    transform-origin: top right;
+}
+
+#bottom {
+    background: url(./assets/b5.jpeg)no-repeat center / cover;
+    transform: rotateX(270deg) translateY(calc(var(--size) / 2));
+    transform-origin: bottom center;
+}
+
+#back {
+    background: url(./assets/b6.jpeg)no-repeat center / cover;
+    transform: rotateY(-180deg) translateZ(calc(var(--size) / 2));
+}
+@keyframes spin  {
+    from {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
